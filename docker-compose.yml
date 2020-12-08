@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  esoterico-api:
+    build: .
+    ports: 
+      - "5000:5000"
+    volumes:
+      - .:/api
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    volumes:
+      - /tmp/:/data/db
